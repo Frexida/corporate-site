@@ -192,10 +192,12 @@ const axes = [
   }
 
   .site-header {
+    position: absolute;
+    z-index: 5;
+    inset: 0 0 auto;
     width: 100%;
     padding: 1.1rem clamp(1.25rem, 5vw, 5rem);
-    border-bottom: 1px solid rgb(241 240 236 / 12%);
-    background: #191a1c;
+    background: linear-gradient(180deg, rgb(15 17 20 / 55%), transparent);
   }
 
   .brand {
@@ -206,7 +208,7 @@ const axes = [
     font-family: var(--font-space-grotesk), 'Space Grotesk', var(--font-inter), sans-serif;
     font-size: 1.45rem;
     font-weight: 400;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.04em;
     text-decoration: none;
   }
 
@@ -234,7 +236,11 @@ const axes = [
   }
 
   .hero {
-    padding-block: clamp(3.5rem, 8vw, 6rem);
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100svh;
+    margin: 0;
+    padding: 0;
   }
 
   .hero-copy {
@@ -277,15 +283,16 @@ const axes = [
     position: relative;
     isolation: isolate;
     overflow: hidden;
-    min-height: clamp(20rem, 48vw, 38rem);
-    border: 1px solid #45484e;
+    width: 100%;
+    height: 100vh;
+    height: 100svh;
     background: #25282d;
   }
 
   .simulation-video {
     display: block;
     width: 100%;
-    height: clamp(20rem, 48vw, 38rem);
+    height: 100%;
     object-fit: cover;
     background: #202226;
   }
@@ -456,14 +463,19 @@ const axes = [
     }
 
     .hero {
-      padding-block: 2.5rem 3rem;
+      width: 100%;
+      min-height: 100vh;
+      min-height: 100svh;
+      padding: 0;
     }
 
-    .simulation-frame,
+    .simulation-frame {
+      height: 100vh;
+      height: 100svh;
+    }
+
     .simulation-video {
-      min-height: 24rem;
-      height: 65vh;
-      max-height: 34rem;
+      height: 100%;
     }
 
     .hero-copy {
