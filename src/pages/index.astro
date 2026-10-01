@@ -88,10 +88,6 @@ const axes = [
 
   <main class="home-shell">
     <section class="hero section-frame" aria-labelledby="hero-title">
-      <div class="hero-copy">
-        <h1 id="hero-title">知能を、現実の動きへ。</h1>
-      </div>
-
       <div class="simulation-frame">
         <video
           class="simulation-video"
@@ -106,6 +102,10 @@ const axes = [
         >
           お使いのブラウザーは動画再生に対応していません。
         </video>
+        <div class="video-glass" aria-hidden="true"></div>
+        <div class="hero-copy">
+          <h1 id="hero-title">知能を<br />現実の動きへ。</h1>
+        </div>
       </div>
     </section>
 
@@ -236,12 +236,17 @@ const axes = [
   }
 
   .hero {
-    padding-top: clamp(5rem, 12vw, 10rem);
-    padding-bottom: clamp(4.5rem, 9vw, 8rem);
+    padding-block: clamp(3.5rem, 8vw, 6rem);
   }
 
   .hero-copy {
-    margin-bottom: 2.25rem;
+    position: absolute;
+    z-index: 2;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    padding: clamp(1.5rem, 7vw, 6rem);
+    pointer-events: none;
   }
 
   .eyebrow {
@@ -264,15 +269,17 @@ const axes = [
     margin: 0;
     color: #f1f0ec;
     font-family: 'Yu Mincho', YuMincho, 'Hiragino Mincho ProN', 'Noto Serif JP', 'BIZ UDPMincho', serif;
-    font-size: clamp(1.8rem, 7vw, 6rem);
+    font-size: clamp(2rem, 7.5vw, 6.5rem);
     font-weight: 600;
     letter-spacing: 0.02em;
-    line-height: 1.35;
+    line-height: 1.45;
   }
 
   .simulation-frame {
     position: relative;
+    isolation: isolate;
     overflow: hidden;
+    min-height: clamp(20rem, 48vw, 38rem);
     border: 1px solid #45484e;
     background: #25282d;
   }
@@ -280,9 +287,19 @@ const axes = [
   .simulation-video {
     display: block;
     width: 100%;
-    aspect-ratio: 1280 / 528;
+    height: clamp(20rem, 48vw, 38rem);
     object-fit: cover;
     background: #202226;
+  }
+
+  .video-glass {
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+    background: rgb(18 21 27 / 38%);
+    backdrop-filter: blur(3px) saturate(70%);
+    -webkit-backdrop-filter: blur(3px) saturate(70%);
+    pointer-events: none;
   }
 
   .content-section {
@@ -440,8 +457,22 @@ const axes = [
     }
 
     .hero {
-      padding-top: 4.5rem;
-      padding-bottom: 4rem;
+      padding-block: 2.5rem 3rem;
+    }
+
+    .simulation-frame,
+    .simulation-video {
+      min-height: 24rem;
+      height: 65vh;
+      max-height: 34rem;
+    }
+
+    .hero-copy {
+      padding: 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.15rem, 10vw, 4rem);
     }
 
     .solution-copy,
