@@ -1,0 +1,69 @@
+---
+// Font family is provided by Astro's native Fonts API (see `fonts` in
+// astro.config.ts and <Font /> in Layout.astro), exposed as `--font-inter`.
+// To switch typefaces, change the `fonts` entry and repoint `--aw-font-*` below.
+---
+
+<style is:inline>
+  :root {
+    --bg: #191a1c;
+    --surface: #242629;
+    --text: #f1f0ec;
+    --muted: #b7b8bd;
+    --accent: #354c78;
+    --accent-dark: #526b9b;
+    --border: #47494e;
+
+    --aw-font-sans: var(--font-inter);
+    --aw-font-serif: var(--font-inter);
+    --aw-font-heading: var(--font-inter);
+
+    --aw-color-primary: rgb(53 76 120);
+    --aw-color-secondary: rgb(82 107 155);
+    --aw-color-accent: rgb(53 76 120);
+    --aw-color-link: rgb(130 156 207);
+
+    --aw-color-text-heading: rgb(241 240 236);
+    --aw-color-text-default: rgb(241 240 236);
+    --aw-color-text-muted: rgb(183 184 189);
+    --aw-color-bg-page: rgb(25 26 28);
+
+    --aw-color-bg-page-dark: rgb(25 26 28);
+
+    ::selection {
+      background-color: rgb(53 76 120 / 55%);
+      color: rgb(241 240 236);
+    }
+  }
+
+  .dark {
+    --aw-font-sans: var(--font-inter);
+    --aw-font-serif: var(--font-inter);
+    --aw-font-heading: var(--font-inter);
+
+    --aw-color-primary: rgb(53 76 120);
+    --aw-color-secondary: rgb(82 107 155);
+    --aw-color-accent: rgb(53 76 120);
+
+    --aw-color-text-heading: rgb(247, 248, 248);
+    --aw-color-text-default: rgb(229 236 246);
+    --aw-color-text-muted: rgb(229 236 246 / 66%);
+    --aw-color-bg-page: rgb(25 26 28);
+
+    ::selection {
+      background-color: rgb(53 76 120 / 55%);
+      color: rgb(241 240 236);
+    }
+  }
+
+  body {
+    background: #191a1c;
+  }
+
+  .panel,
+  .card,
+  [class*='shadow-xl'],
+  [class*='shadow-lg'] {
+    border-color: var(--border);
+  }
+</style>

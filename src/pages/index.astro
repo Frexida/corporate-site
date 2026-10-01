@@ -1,0 +1,525 @@
+---
+import PageLayout from '~/layouts/PageLayout.astro';
+import StructuredData from '~/components/common/StructuredData.astro';
+import { SITE, I18N } from 'astrowind:config';
+
+const metadata = {
+  title: 'Physical AIで、防災現場に動く知能を',
+  description:
+    'Frexidaは、既存の機械に知能を載せ、防災現場で自律的に動く機械の実用化を目指すPhysical AIスタートアップです。',
+};
+
+const organizationId = `${SITE?.site}/#organization`;
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${SITE?.site}/#website`,
+    name: SITE?.name,
+    url: SITE?.site,
+    inLanguage: I18N?.language,
+    publisher: { '@id': organizationId },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': organizationId,
+    name: SITE?.name,
+    url: SITE?.site,
+    logo: new URL('/images/frexida-logo.png', SITE?.site).toString(),
+  },
+];
+
+const companyInfo = [
+  ['代表', '松田 直和'],
+  ['所在地', '会津大学'],
+  ['事業内容', 'ソフトウェア開発'],
+  ['Webサイト', 'www.frexida.com'],
+  ['連絡先', 'contact[at]frexida.com'],
+];
+
+const principles = [
+  {
+    name: 'Mission',
+    definition: '何のために存在するか',
+    statement: '防災。南海トラフ地震などの災害被害を最小限に抑える',
+  },
+  {
+    name: 'Vision',
+    definition: '作りたい未来・あるべき姿',
+    statement: '防災現場で自律的に動く機械を実用化し、人命と社会インフラを守る',
+  },
+  {
+    name: 'Value',
+    definition: '提供価値・行動指針',
+    statement: '危険な作業と軽度の判断の繰り返しを機械に代替する',
+  },
+];
+
+const axes = [
+  {
+    name: '防災',
+    meaning: '社会課題への貢献',
+    expression: '南海トラフ地震などの災害被害を最小限に抑える',
+    question: 'これは災害時・社会の役に立つか',
+  },
+  {
+    name: '持続性',
+    meaning: '事業を継続できる収益をつくる',
+    expression: '会津若松の少量多品種工場向けB2B製造業支援で収益化する',
+    question: 'これはお金になって続けられるか',
+  },
+  {
+    name: '冒険・探究',
+    meaning: '新しい技術・現場・可能性を探る',
+    expression: 'AIエージェント、汎用機械、自律機械を実験し、実装する',
+    question: 'これは新しいことを学び・試せるか',
+  },
+];
+---
+
+<PageLayout metadata={metadata}>
+  <StructuredData slot="head" schema={structuredData} />
+  <Fragment slot="footer"></Fragment>
+
+  <header slot="header" class="site-header">
+    <a class="brand" href="/" aria-label="Frexida ホーム">
+      <img src="/images/frexida-logo.png" alt="" width="36" height="36" />
+      <span>Frexida</span>
+    </a>
+  </header>
+
+  <main class="home-shell">
+    <section class="hero section-frame" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">FREXIDA <span aria-hidden="true">/</span> PHYSICAL AI</p>
+        <h1 id="hero-title">Physical AI</h1>
+        <p class="hero-subtitle">知能を、現実の動きへ。</p>
+      </div>
+
+      <div class="simulation-frame">
+        <video
+          class="simulation-video"
+          src="/videos/frexida-robot-simulation.mp4"
+          poster="/images/robot-simulation-poster.webp"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          aria-label="MuJoCo上で動作するロボットアームのシミュレーション"
+        >
+          お使いのブラウザーは動画再生に対応していません。
+        </video>
+      </div>
+    </section>
+
+    <section class="content-section solution-section section-frame" aria-labelledby="solution-title">
+      <div class="section-heading">
+        <h2 id="solution-title">解決策と提供できる価値</h2>
+      </div>
+      <div class="solution-copy">
+        <p class="solution-lead">私たちは、既存の機械に知能を載せ、その価値を大きく拡張する。</p>
+        <p>
+          特殊な装置を一から作るのではなく、人間のように状況を判断し、汎用的に動く機械で現場の課題を解決する。少量多品種の製造現場や、熟練者の目に頼ってきた検査・判断の繰り返し作業に向く。
+        </p>
+        <p>
+          この仕組みを工場に広げていくことで、現場のデータを取り込み、AIエージェントと接続する土台を作る。効率化からIoT化へ、そして自律的な機械へと繋げていく。
+        </p>
+      </div>
+    </section>
+
+    <section class="content-section principles-section section-frame" aria-labelledby="principles-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">MISSION / VISION / VALUE</p>
+          <h2 id="principles-title">Frexidaの考え方</h2>
+        </div>
+      </div>
+      <div class="principles-list">
+        {
+          principles.map((principle) => (
+            <article class="principle-row">
+              <div class="principle-name">
+                <h3>{principle.name}</h3>
+                <p>{principle.definition}</p>
+              </div>
+              <p class="principle-statement">{principle.statement}</p>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="content-section axes-section section-frame" aria-labelledby="axes-title">
+      <div class="section-heading">
+        <div>
+          <h2 id="axes-title">事業を支える三つの軸</h2>
+        </div>
+      </div>
+      <div class="axes-grid">
+        {
+          axes.map((axis) => (
+            <article class="axis-item">
+              <h3>{axis.name}</h3>
+              <p class="axis-meaning">{axis.meaning}</p>
+              <p class="axis-expression">{axis.expression}</p>
+              <p class="axis-question">{axis.question}</p>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="content-section company-section section-frame" aria-labelledby="company-title">
+      <div class="section-heading">
+        <h2 id="company-title">会社情報</h2>
+      </div>
+      <dl class="company-list">
+        {
+          companyInfo.map(([label, value]) => (
+            <div class="company-row">
+              <dt>{label}</dt>
+              <dd>{value}</dd>
+            </div>
+          ))
+        }
+      </dl>
+    </section>
+  </main>
+</PageLayout>
+
+<style>
+  :global(html) {
+    background: #191a1c;
+  }
+
+  :global(body) {
+    background: #191a1c;
+    color: #f1f0ec;
+  }
+
+  .site-header {
+    width: 100%;
+    padding: 1.1rem clamp(1.25rem, 5vw, 5rem);
+    border-bottom: 1px solid rgb(241 240 236 / 12%);
+    background: #191a1c;
+  }
+
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #f1f0ec;
+    font-size: 1.15rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-decoration: none;
+  }
+
+  .brand img {
+    width: 2.25rem;
+    height: 2.25rem;
+    object-fit: contain;
+  }
+
+  .home-shell {
+    --ink: #f1f0ec;
+    --muted-ink: #b7b8bd;
+    --line: #414348;
+    --indigo: #526b9b;
+    --page: #191a1c;
+    --raised: #242629;
+    overflow: hidden;
+    background: var(--page);
+    color: var(--ink);
+  }
+
+  .section-frame {
+    width: min(100% - 3rem, 76rem);
+    margin-inline: auto;
+  }
+
+  .hero {
+    padding-top: clamp(5rem, 12vw, 10rem);
+    padding-bottom: clamp(4.5rem, 9vw, 8rem);
+  }
+
+  .hero-copy {
+    margin-bottom: 2.25rem;
+  }
+
+  .eyebrow {
+    margin: 0;
+    color: #9ba7c0;
+    font-family: var(--font-inter), Inter, sans-serif;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    line-height: 1.6;
+    text-transform: uppercase;
+  }
+
+  .eyebrow span {
+    padding-inline: 0.25rem;
+    color: var(--indigo);
+  }
+
+  .hero h1 {
+    margin: 1.4rem 0 0;
+    color: #f1f0ec;
+    font-family: 'Walbaum Pro', var(--font-bodoni), 'Bodoni Moda', 'Bodoni 72', Didot, Georgia, serif;
+    font-size: clamp(4.25rem, 11vw, 9.75rem);
+    font-weight: 700;
+    letter-spacing: -0.065em;
+    line-height: 0.92;
+  }
+
+  .hero-subtitle {
+    margin: 1.4rem 0 0;
+    color: #e0e0df;
+    font-size: clamp(1.1rem, 2.2vw, 1.7rem);
+    font-weight: 400;
+    letter-spacing: 0.08em;
+  }
+
+  .simulation-frame {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #45484e;
+    background: #25282d;
+  }
+
+  .simulation-video {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1280 / 528;
+    object-fit: cover;
+    background: #202226;
+  }
+
+  .content-section {
+    padding-block: clamp(4rem, 8vw, 7rem);
+    border-top: 1px solid var(--line);
+  }
+
+  .section-heading {
+    margin-bottom: 2.5rem;
+  }
+
+  .section-heading .eyebrow {
+    margin-bottom: 0.55rem;
+  }
+
+  .section-heading h2 {
+    margin: 0;
+    color: var(--ink);
+    font-size: clamp(1.6rem, 3vw, 2.5rem);
+    font-weight: 500;
+    letter-spacing: 0.015em;
+    line-height: 1.4;
+  }
+
+  .solution-copy {
+    max-width: 58rem;
+    margin-left: clamp(0rem, 5vw, 4.5rem);
+  }
+
+  .solution-copy p {
+    margin: 1.25rem 0 0;
+    color: var(--muted-ink);
+    font-size: 1rem;
+    line-height: 2.05;
+  }
+
+  .solution-copy .solution-lead {
+    margin-top: 0;
+    color: var(--ink);
+    font-size: clamp(1.65rem, 3.6vw, 2.9rem);
+    font-weight: 500;
+    letter-spacing: 0.005em;
+    line-height: 1.55;
+  }
+
+  .principles-list {
+    margin-left: clamp(0rem, 5vw, 4.5rem);
+    border-top: 1px solid var(--line);
+  }
+
+  .principle-row {
+    display: grid;
+    grid-template-columns: minmax(11rem, 0.7fr) minmax(0, 1.6fr);
+    gap: 2rem;
+    align-items: start;
+    padding: 1.8rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .principle-name h3 {
+    margin: 0;
+    color: #9ba7c0;
+    font-family: var(--font-inter), Inter, sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .principle-name p {
+    margin: 0.45rem 0 0;
+    color: #8f9197;
+    font-size: 0.82rem;
+    line-height: 1.7;
+  }
+
+  .principle-statement {
+    margin: 0;
+    color: var(--ink);
+    font-size: clamp(1.08rem, 2vw, 1.45rem);
+    line-height: 1.9;
+  }
+
+  .axes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-left: clamp(0rem, 5vw, 4.5rem);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .axis-item {
+    padding: 1.7rem clamp(1rem, 2vw, 2rem) 2rem;
+  }
+
+  .axis-item:first-child {
+    padding-left: 0;
+  }
+
+  .axis-item + .axis-item {
+    border-left: 1px solid var(--line);
+  }
+
+  .axis-item h3 {
+    margin: 0;
+    color: var(--ink);
+    font-size: clamp(1.25rem, 2vw, 1.7rem);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+  }
+
+  .axis-meaning {
+    min-height: 3rem;
+    margin: 0.6rem 0 0;
+    color: #9ba7c0;
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  .axis-expression {
+    min-height: 5.2rem;
+    margin: 1rem 0 0;
+    color: var(--muted-ink);
+    font-size: 0.92rem;
+    line-height: 1.85;
+  }
+
+  .axis-question {
+    margin: 1.25rem 0 0;
+    padding-top: 1rem;
+    border-top: 2px solid var(--indigo);
+    color: var(--ink);
+    font-size: 0.88rem;
+    font-weight: 500;
+    line-height: 1.75;
+  }
+
+  .company-list {
+    margin: 0 0 0 clamp(0rem, 5vw, 4.5rem);
+    border-top: 1px solid var(--line);
+  }
+
+  .company-row {
+    display: grid;
+    grid-template-columns: minmax(9rem, 0.55fr) minmax(0, 1.45fr);
+    gap: 1.5rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .company-row dt {
+    color: #9ba7c0;
+    font-size: 0.88rem;
+  }
+
+  .company-row dd {
+    margin: 0;
+    color: var(--ink);
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 700px) {
+    .section-frame {
+      width: min(100% - 2rem, 76rem);
+    }
+
+    .hero {
+      padding-top: 4.5rem;
+      padding-bottom: 4rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(3.35rem, 15vw, 6rem);
+    }
+
+    .solution-copy,
+    .principles-list,
+    .axes-grid,
+    .company-list {
+      margin-left: 0;
+    }
+
+    .principle-row {
+      grid-template-columns: 1fr;
+      gap: 0.65rem;
+      padding: 1.35rem 0;
+    }
+
+    .axes-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .axis-item,
+    .axis-item:first-child {
+      padding: 1.35rem 0;
+    }
+
+    .axis-item + .axis-item {
+      border-top: 1px solid var(--line);
+      border-left: 0;
+    }
+
+    .axis-meaning,
+    .axis-expression {
+      min-height: 0;
+    }
+
+    .company-row {
+      grid-template-columns: 6rem minmax(0, 1fr);
+      gap: 0.75rem;
+    }
+  }
+</style>
+
+<script>
+  const simulation = document.querySelector<HTMLVideoElement>('.simulation-video');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  const syncSimulationPlayback = () => {
+    if (!simulation) return;
+    if (reduceMotion.matches) simulation.pause();
+    else simulation.playbackRate = 1.8;
+  };
+
+  syncSimulationPlayback();
+  reduceMotion.addEventListener('change', syncSimulationPlayback);
+</script>
