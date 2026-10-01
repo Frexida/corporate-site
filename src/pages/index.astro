@@ -4,9 +4,8 @@ import StructuredData from '~/components/common/StructuredData.astro';
 import { SITE, I18N } from 'astrowind:config';
 
 const metadata = {
-  title: 'Physical AIで、防災現場に動く知能を',
-  description:
-    'Frexidaは、既存の機械に知能を載せ、防災現場で自律的に動く機械の実用化を目指すPhysical AIスタートアップです。',
+  title: '知能を、現実の動きへ。',
+  description: 'Frexidaは、既存の機械に知能を載せ、自律的に動く機械の実用化を目指します。',
 };
 
 const organizationId = `${SITE?.site}/#organization`;
@@ -42,12 +41,12 @@ const principles = [
   {
     name: 'Mission',
     definition: '何のために存在するか',
-    statement: '防災。南海トラフ地震などの災害被害を最小限に抑える',
+    statement: '災害被害を最小限に抑える',
   },
   {
     name: 'Vision',
     definition: '作りたい未来・あるべき姿',
-    statement: '防災現場で自律的に動く機械を実用化し、人命と社会インフラを守る',
+    statement: '自律的に動く機械を実用化し、人命と社会インフラを守る',
   },
   {
     name: 'Value',
@@ -60,20 +59,17 @@ const axes = [
   {
     name: '防災',
     meaning: '社会課題への貢献',
-    expression: '南海トラフ地震などの災害被害を最小限に抑える',
-    question: 'これは災害時・社会の役に立つか',
+    expression: '災害被害を最小限に抑える',
   },
   {
     name: '持続性',
     meaning: '事業を継続できる収益をつくる',
     expression: '会津若松の少量多品種工場向けB2B製造業支援で収益化する',
-    question: 'これはお金になって続けられるか',
   },
   {
-    name: '冒険・探究',
+    name: '探究',
     meaning: '新しい技術・現場・可能性を探る',
     expression: 'AIエージェント、汎用機械、自律機械を実験し、実装する',
-    question: 'これは新しいことを学び・試せるか',
   },
 ];
 ---
@@ -92,9 +88,7 @@ const axes = [
   <main class="home-shell">
     <section class="hero section-frame" aria-labelledby="hero-title">
       <div class="hero-copy">
-        <p class="eyebrow">FREXIDA <span aria-hidden="true">/</span> PHYSICAL AI</p>
-        <h1 id="hero-title">Physical AI</h1>
-        <p class="hero-subtitle">知能を、現実の動きへ。</p>
+        <h1 id="hero-title">知能を、現実の動きへ。</h1>
       </div>
 
       <div class="simulation-frame">
@@ -164,7 +158,6 @@ const axes = [
               <h3>{axis.name}</h3>
               <p class="axis-meaning">{axis.meaning}</p>
               <p class="axis-expression">{axis.expression}</p>
-              <p class="axis-question">{axis.question}</p>
             </article>
           ))
         }
@@ -211,9 +204,10 @@ const axes = [
     align-items: center;
     gap: 0.75rem;
     color: #f1f0ec;
+    font-family: var(--font-space-grotesk), 'Space Grotesk', var(--font-inter), sans-serif;
     font-size: 1.15rem;
-    font-weight: 500;
-    letter-spacing: 0.16em;
+    font-weight: 400;
+    letter-spacing: 0.18em;
     text-decoration: none;
   }
 
@@ -266,21 +260,13 @@ const axes = [
   }
 
   .hero h1 {
-    margin: 1.4rem 0 0;
+    margin: 0;
     color: #f1f0ec;
-    font-family: 'Walbaum Pro', var(--font-bodoni), 'Bodoni Moda', 'Bodoni 72', Didot, Georgia, serif;
-    font-size: clamp(4.25rem, 11vw, 9.75rem);
-    font-weight: 700;
-    letter-spacing: -0.065em;
-    line-height: 0.92;
-  }
-
-  .hero-subtitle {
-    margin: 1.4rem 0 0;
-    color: #e0e0df;
-    font-size: clamp(1.1rem, 2.2vw, 1.7rem);
-    font-weight: 400;
-    letter-spacing: 0.08em;
+    font-family: 'Yu Mincho', YuMincho, 'Hiragino Mincho ProN', 'Noto Serif JP', 'BIZ UDPMincho', serif;
+    font-size: clamp(1.8rem, 7vw, 6rem);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    line-height: 1.35;
   }
 
   .simulation-frame {
@@ -423,16 +409,6 @@ const axes = [
     line-height: 1.85;
   }
 
-  .axis-question {
-    margin: 1.25rem 0 0;
-    padding-top: 1rem;
-    border-top: 2px solid var(--indigo);
-    color: var(--ink);
-    font-size: 0.88rem;
-    font-weight: 500;
-    line-height: 1.75;
-  }
-
   .company-list {
     margin: 0 0 0 clamp(0rem, 5vw, 4.5rem);
     border-top: 1px solid var(--line);
@@ -465,10 +441,6 @@ const axes = [
     .hero {
       padding-top: 4.5rem;
       padding-bottom: 4rem;
-    }
-
-    .hero h1 {
-      font-size: clamp(3.35rem, 15vw, 6rem);
     }
 
     .solution-copy,

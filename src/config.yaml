@@ -11,7 +11,7 @@ metadata:
   title:
     default: Frexida
     template: '%s — Frexida'
-  description: 'Frexidaは、防災現場で自律的に動く機械の実用化を目指すPhysical AIスタートアップです。'
+  description: 'Frexidaは、自律的に動く機械の実用化を目指します。'
   robots:
     index: true
     follow: true

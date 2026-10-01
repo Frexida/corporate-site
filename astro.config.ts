@@ -48,12 +48,12 @@ export default defineConfig({
     },
     {
       provider: fontProviders.fontsource(),
-      name: 'Bodoni Moda',
-      cssVariable: '--font-bodoni',
-      weights: ['700'],
+      name: 'Space Grotesk',
+      cssVariable: '--font-space-grotesk',
+      weights: ['400', '500', '600'],
       styles: ['normal'],
       subsets: ['latin'],
-      fallbacks: ['Georgia', 'serif'],
+      fallbacks: ['sans-serif'],
     },
   ],
 
